@@ -1,0 +1,8 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo "Deploying to S3..."
+      - aws s3 sync . s3://cicd-bucket-jimin-01/ --delete --exclude ".git/*" --exclude "buildspec.yml"
+      - echo "Deployment complete!"
